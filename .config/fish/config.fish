@@ -12,8 +12,8 @@ zoxide   init fish | source # 'ajeetdsouza/zoxide'
 starship init fish | source # https://starship.rs/
 
 set -U fish_greeting # disable fish greeting
-set -U LANG en_US.UTF-8
-set -U LC_ALL en_US.UTF-8
+set -Ux LANG en_US.UTF-8
+set -Ux LC_ALL en_US.UTF-8
 
 # just found <C-x>e for fish as <M-v>, sayonara vi-mode, emacs-mode first
 set -U fish_key_bindings fish_default_key_bindings
