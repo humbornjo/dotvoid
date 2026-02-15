@@ -8,7 +8,6 @@
 # A smart and user-friendly command line
 # https://fishshell.com/
 
-eval (/opt/homebrew/bin/brew shellenv)
 zoxide   init fish | source # 'ajeetdsouza/zoxide'
 starship init fish | source # https://starship.rs/
 
@@ -53,7 +52,7 @@ fish_add_path $FVM_HOME/default/bin
 # ghcup-env
 set -q GHCUP_INSTALL_BASE_PREFIX[1];
 or set GHCUP_INSTALL_BASE_PREFIX $HOME;
-set -gx PATH $HOME/.cabal/bin $PATH /Users/humborn/.ghcup/bin
+set -gx PATH $HOME/.cabal/bin $PATH $HOME/.ghcup/bin
 
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.

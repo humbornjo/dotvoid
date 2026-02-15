@@ -155,6 +155,15 @@ abbr vp "nvim package.json"
 abbr vt "nvim ~/.config/tmux/tmux.conf"
 abbr vv "nvim ~/.config/nvim/lua/plugins"
 
+abbr xi   "sudo xbps-install"
+abbr xq   "sudo xbps-query"
+abbr xrm  "sudo xbps-remove"
+abbr xrc  "sudo xbps-reconfigure"
+abbr xri  "sudo xbps-rindex"
+abbr xalt "sudo xbps-alternatives"
+abbr xp   "sudo xbps-pkgdb"
+abbr xm   "sudo xmirror"
+
 abbr y yarn
 abbr ya "yarn add"
 abbr yad "yarn add -D"

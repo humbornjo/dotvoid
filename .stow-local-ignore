@@ -1,9 +1,11 @@
+.config
 .DS_Store
 .git
 .gitignore
 .mackup
 .mackup.cfg
 .zshenv
+.config
 asset
 install.sh
 README.md

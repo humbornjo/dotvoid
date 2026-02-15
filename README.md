@@ -1,4 +1,4 @@
-# humbornjo's Dotfiles
+# yamao's Dotfiles
 
 This is the home of all my dotfiles.
 
