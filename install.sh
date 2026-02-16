@@ -17,8 +17,7 @@ sudo xbps-install fish-shell git make stow eza bat vim neovim curl wget
 # Install dotfiles
 mkdir -p ~/.config
 mkdir -p ~/Repository && pushd ~/Repository
-GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 \
-	git@github.com:humbornjo/dotfiles.git dotfiles && \
+GIT_LFS_SKIP_SMUDGE=1 git clone git@github.com:humbornjo/dotvoid.git dotfiles && \
 	cd dotfiles && git checkout void-linux
 
 # stow all configs under .config except nvim
@@ -59,6 +58,7 @@ sudo xbps-install netcat
 sudo xbps-install iotop
 sudo xbps-install procs
 sudo xbps-install fastfetch
+sudo xbps-install trash-cli
 sudo xbps-install android-tools # adb & fastboot
 
 # programming language
@@ -88,9 +88,11 @@ sudo xbps-install github-cli
 sudo xbps-install lazygit
 sudo xbps-install delta
 sudo xbps-install bottom
+sudo xbps-install git-lfs
 go install github.com/arl/gitmux@latest
 
 #docker
+sudo xbps-install docker
 sudo ln -s /etc/sv/docker /var/service/
 sudo usermod -aG docker $USER
 
@@ -129,7 +131,9 @@ popd
 # sesh
 go install github.com/joshmedeski/sesh/v2@latest
 
-# tpm
-# PS: follow the official tutorial to init
+# tpm (follow the official tutorial to init)
+# INFO: Below git config could screw tpm install, disable it temporarily
+# [url "git@github.com:"]
+#	  insteadOf = https://github.com/
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-tmux source ~/.tmux.conf
+tmux source ~/.config/tmux/tmux.conf

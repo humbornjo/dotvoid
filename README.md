@@ -1,35 +1,60 @@
 # yamao's Dotfiles
 
-This is the home of all my dotfiles.
+Main dotfiles repository [link](https://github.com/humbornjo/dotfiles)
 
-Heavily inspired by [joshmedeski's config](https://github.com/joshmedeski/dotfiles), respect~~
+## Proxy
 
-## New
+[Clash-Meta](https://hub.docker.com/r/yikyo/clash.meta)
 
-- Fix some appearence issues, now ever'y thing is prettier!
-- Don't you think gruvbox material color theme cool!
+```bash
+sudo mkdir -p /etc/.clash.meta.d
 
-## Preview
+sudo cp config.yaml /etc/.clash.meta.d/
 
-![preview_1](./asset/preview_1.png)
-![preview_2](./asset/preview_2.png)
-![preview_3](./asset/preview_3.png)
+# core
+docker run --name clash -d \
+    -p 7890:7890 \
+    -p 7891:7891 \
+    -p 7892:7892 \
+    -p 9090:9090 \
+    -v /etc/.clash.meta.d:/etc/.clash.meta.d \
+    yikyo/clash.meta
 
-## TODO
+# dashboard
+docker run -p 9091:80 -d --rm haishanh/yacd
+```
 
-- [ ] Contribute to some cool neovim plugin
+## Docker
 
-## Software
+```bash
+sudo mkdir -p /etc/docker
+echo '{ "registry-mirrors": [ "https://dockerproxy.net" ] }' | sudo tee /etc/docker/daemon.json
+sudo sv restart docker
+```
 
-- Font: [SFMono Nerd Font](https://github.com/epk/SF-Mono-Nerd-Font/issues/4)
-- Colors: [gruvbox-material](https://github.com/sainnhe/gruvbox-material)
-- Shell: [fish](https://fishshell.com)
-- Terminal: [Ghostty](https://github.com/ghostty-org/ghostty)
-- Multiplexer: [tmux](https://github.com/tmux/tmux/wiki)
-- terminal file manager: [yazi](https://github.com/sxyazi/yazi)
-- macOS package manager: [Homebrew](https://brew.sh)
-- Git: [lazygit](https://github.com/jesseduffield/lazygit)
-- Editor: [Neovim](https://neovim.io) + [AstroNvim](https://astronvim.com/)
+## Kubernetes
+
+`k3d` requires config file to pull images in China Mainland
+
+```bash
+k3d cluster create --config k3d-config.yaml
+```
+
+[config](https://k3d.io/v5.6.3/usage/configfile/) file is like follows:
+
+```yaml
+# k3d-config.yaml
+apiVersion: k3d.io/v1alpha5
+kind: Simple
+metadata:
+  name: k3d-default
+registries:
+  config: |
+    mirrors:
+      "docker.io":
+        endpoint:
+          - https://dockerproxy.net
+```
 
 ## Hardware
 

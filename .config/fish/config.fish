@@ -26,6 +26,7 @@ set -Ux EZA_CONFIG_DIR "$HOME/.config/eza"
 set -Ux BAT_CONFIG_PATH "$HOME/.config/bat/config" # 'sharkdp/bat' cat clone
 set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
 set -Ux KUBECONFIG "$HOME/.kube/config"
+set -Ux XDG_CONFIG_HOME "$HOME/.config"
 
 # golang
 set -Ux GOPATH "$HOME/Library/go"

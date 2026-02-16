@@ -9,7 +9,7 @@ function proxy
             set -gx all_proxy   socks5://127.0.0.1:7891
 
             # 设置一些不需要代理的地址
-            set -gx no_proxy    "localhost,127.0.0.1,*.local,192.168.0.0/16"
+            set -gx no_proxy    "127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
 
             echo "Proxy enabled (HTTP: 7890, SOCKS: 7891)"
 
