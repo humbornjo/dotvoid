@@ -21,7 +21,7 @@ docker run --name clash -d \
     yikyo/clash.meta
 
 # dashboard
-docker run -p 9091:80 -d --rm haishanh/yacd
+docker run -p 9091:80 --name yacd -d haishanh/yacd
 ```
 
 ## Docker

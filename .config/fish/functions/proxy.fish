@@ -4,9 +4,15 @@ function proxy
             # 设置 HTTP/HTTPS 代理
             set -gx http_proxy  http://127.0.0.1:7890
             set -gx https_proxy http://127.0.0.1:7890
+            set -gx HTTP_PROXY  http://127.0.0.1:7890
+            set -gx HTTPS_PROXY http://127.0.0.1:7890
 
             # 设置 SOCKS5 代理 (针对支持 ALL_PROXY 的工具，如 curl)
+            set -gx socks_proxy socks5://127.0.0.1:7891
+            set -gx SOCKS_PROXY socks5://127.0.0.1:7891
+
             set -gx all_proxy   socks5://127.0.0.1:7891
+            set -gx ALL_PROXY   socks5://127.0.0.1:7891
 
             # 设置一些不需要代理的地址
             set -gx no_proxy    "127.0.0.0/8,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
@@ -17,7 +23,12 @@ function proxy
             # 擦除变量
             set -e http_proxy
             set -e https_proxy
+            set -e HTTP_PROXY
+            set -e HTTPS_PROXY
+            set -e socks_proxy
+            set -e SOCKS_PROXY
             set -e all_proxy
+            set -e ALL_PROXY
             set -e no_proxy
 
             echo "Proxy disabled"

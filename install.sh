@@ -102,9 +102,9 @@ sudo usermod -aG network $USER
 # kubernetes
 sudo xbps-install k3d
 sudo xbps-install k9s
-sudo xbps-install helm
 sudo xbps-install kubectl
 sudo xbps-install lazydocker
+sudo xbps-install kubernetes-helm
 
 # kubectx and kubens
 sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
